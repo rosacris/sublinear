@@ -1,0 +1,46 @@
+\documentclass{scrartcl}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{dsfont}
+
+\def\E{\mathds{E}}
+
+\title{Sublinear Algorithms for Big Datasets}
+\subtitle{Exam Problems}
+\author{Cristian Rosa \and Jose Luis Diaz}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1: Modified Chernoff Bound}
+Let $X_1, \dots, X_t$ be independent and identically distributed r.vs with range $[0,c]$
+and expectation $\mu$. Then if $X = \frac{1}{t} \sum_i X_i$ and $1 > \delta > 0,$    
+
+$$
+Pr[|X - \mu| \geq \delta\mu ] \leq 2 e^{\big(- \tfrac{t\mu\delta^2}{3c}\big)}
+$$
+
+\begin{proof}
+$$
+0 \leq X_i \leq c, i \in 1\dots t \Rightarrow 0 \leq \frac{X_i}{c} \leq 1 
+$$
+Let $Z = \frac{X}{c}$, then by Chernoff Bound 1
+$$
+Pr[|Z - \E[Z] | \geq \delta \E[Z] ] \leq 2 e^{\big(- \tfrac{t\E[Z]\delta^2}{3}\big)} 
+$$
+definition of $Z$
+$$
+Pr[|\tfrac{X}{c} - \E[\tfrac{X}{c}] | \geq \delta \E[\tfrac{X}{c}] ] \leq 2 e^{\big(- \tfrac{t\E[\frac{X}{c}]\delta^2}{3}\big)}
+$$
+linearity of expectation
+$$
+Pr[|\tfrac{X}{c} - \tfrac{1}{c}\E[X] | \geq \delta \tfrac{1}{c}\E[X]] \leq 2 e^{\big(- \tfrac{t\frac{1}{c}\E[X]\delta^2}{3}\big)}
+$$
+simplification and definition of $\mu = \E[X]$
+$$
+Pr[|X - \mu | \geq \delta \mu] \leq 2 e^{\big(- \tfrac{t\mu\delta^2}{3c}\big)}
+$$
+\end{proof}
+\end{document}
