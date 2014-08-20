@@ -43,4 +43,33 @@ $$
 Pr[|X - \mu | \geq \delta \mu] \leq 2 e^{\big(- \tfrac{t\mu\delta^2}{3c}\big)}
 $$
 \end{proof}
+
+\section*{Problem 2: Modified Chebychev}
+
+Let $X$ be a random variable with finite expectation $\E[X]$. For every $c' > 0 $,
+$$
+Pr[|X - \E[X]| \geq c'\E[X]] \leq \dfrac{Var[X]}{(c'\E[X])^2}
+$$
+
+\begin{proof}
+Let $X$ be a random variable with finite expectation $\E[X]$ and $c > 0$, then by Chebychev bound
+
+$$
+Pr[|X - \E[X]| \geq c \sqrt{Var[X]}] \leq \dfrac{1}{c^2}
+$$
+
+Let $c = \dfrac{c' \E[X]}{\sqrt{Var[X]}}$ with $c' > 0$, then
+
+$$
+Pr[|X - \E[X]| \geq \dfrac{c' \E[X]}{\sqrt{Var[X]}} \sqrt{Var[X]}] \leq \dfrac{1}{\Big( \frac{c' \E[X]}{\sqrt{Var[X]}}\Big)^2}
+$$
+
+Simplification
+
+$$
+Pr[|X - \E[X]| \geq c'\E[X]] \leq \dfrac{Var[X]}{(c'\E[X])^2}
+$$
+
+\end{proof}
+
 \end{document}
